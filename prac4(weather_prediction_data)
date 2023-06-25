@@ -19,4 +19,8 @@ function setup() {
 }
 
 function processData(data) {
-	customWrite(0, data); }
+	if(data>90){
+	customWrite(0, data+"going to rain"); }
+	else{
+		customWrite(0, data+"no rain"); }
+	}
