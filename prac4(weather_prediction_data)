@@ -1,0 +1,22 @@
+function setup() {
+	pinMode(1, OUTPUT);
+	Serial.println("Blinking");
+}
+
+function loop() {
+	digitalWrite(1, HIGH);
+	delay(1000);
+	digitalWrite(1, LOW);
+	delay(500);
+}
+function getSensorData(){
+	return Math.floor(map(analogRead(A0), 0, 1023, 0, 100) + 0.5);
+}
+function setup() {
+	attachInterrupt(A0, function() {
+	processData(getSensorData());
+});
+}
+
+function processData(data) {
+	customWrite(0, data); }
